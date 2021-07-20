@@ -1,0 +1,20 @@
+- defaultTab: nodes
+  description: hello_world
+  executionEnabled: true
+  id: 529eeb4a-44fc-4be8-974c-63730433bad1
+  loglevel: INFO
+  name: hello_world
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - description: hello_world
+      exec: 'echo "Hola Mundo" '
+    keepgoing: false
+    strategy: node-first
+  tags: hello_world
+  uuid: 529eeb4a-44fc-4be8-974c-63730433bad1
+
