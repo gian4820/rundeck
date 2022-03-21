@@ -7,7 +7,7 @@
   nodeFilterEditable: false
   plugins:
     ExecutionLifecycle: {}
-  scheduleEnabled: true
+  scheduleEnabled: false
   schedules: []
   sequence:
     commands:
