@@ -1,0 +1,29 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 77bcb2ff-1dbd-4a16-bbd8-f1d029ffb1cf
+  loglevel: INFO
+  name: mask
+  nodeFilterEditable: false
+  options:
+  - label: password
+    name: password
+    secure: true
+    valueExposed: true
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - description: echo
+      exec: echo ${option.password}
+    keepgoing: false
+    pluginConfig:
+      LogFilter:
+      - config:
+          color: red
+          replacement: '[SECURE]'
+        type: mask-passwords
+    strategy: node-first
+  uuid: 77bcb2ff-1dbd-4a16-bbd8-f1d029ffb1cf
