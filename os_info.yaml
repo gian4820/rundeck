@@ -1,0 +1,21 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: ef952123-c3b3-4bcd-9087-362b5f201ddc
+  loglevel: INFO
+  name: os_info
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules:
+  - jobParams: null
+    name: exec
+  sequence:
+    commands:
+    - description: os_info
+      exec: lsb_release -a
+    keepgoing: false
+    strategy: node-first
+  tags: os_info
+  uuid: ef952123-c3b3-4bcd-9087-362b5f201ddc
