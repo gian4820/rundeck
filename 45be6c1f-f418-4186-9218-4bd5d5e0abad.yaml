@@ -1,0 +1,28 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 45be6c1f-f418-4186-9218-4bd5d5e0abad
+  loglevel: INFO
+  name: ping
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  schedule:
+    dayofmonth:
+      day: 1/1
+    month: '*'
+    time:
+      hour: '*'
+      minute: 0/1
+      seconds: '0'
+    year: '*'
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - description: ping
+      exec: ping -c 50 www.ole.com.ar
+    keepgoing: false
+    strategy: node-first
+  uuid: 45be6c1f-f418-4186-9218-4bd5d5e0abad
+
