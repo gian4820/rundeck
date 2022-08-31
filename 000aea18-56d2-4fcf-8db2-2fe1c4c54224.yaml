@@ -11,7 +11,7 @@
   schedules: []
   sequence:
     commands:
-    - exec: echo "test"
+    - exec: echo "hola a todos"
     keepgoing: false
     strategy: node-first
   uuid: 000aea18-56d2-4fcf-8db2-2fe1c4c54224
