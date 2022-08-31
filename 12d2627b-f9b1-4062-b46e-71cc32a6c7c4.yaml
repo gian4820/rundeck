@@ -3,7 +3,7 @@
   executionEnabled: true
   id: 12d2627b-f9b1-4062-b46e-71cc32a6c7c4
   loglevel: INFO
-  name: test44
+  name: test7
   nodeFilterEditable: false
   plugins:
     ExecutionLifecycle: {}
