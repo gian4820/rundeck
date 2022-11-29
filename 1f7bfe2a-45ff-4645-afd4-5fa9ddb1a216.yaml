@@ -1,0 +1,18 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 1f7bfe2a-45ff-4645-afd4-5fa9ddb1a216
+  loglevel: INFO
+  name: hi_noconection
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: echo "No Connection"
+    keepgoing: false
+    strategy: node-first
+  uuid: 1f7bfe2a-45ff-4645-afd4-5fa9ddb1a216
+
