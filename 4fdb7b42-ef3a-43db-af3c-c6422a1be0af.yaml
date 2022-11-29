@@ -1,0 +1,18 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 4fdb7b42-ef3a-43db-af3c-c6422a1be0af
+  loglevel: INFO
+  name: hi
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: echo "hi world"
+    keepgoing: false
+    strategy: node-first
+  uuid: 4fdb7b42-ef3a-43db-af3c-c6422a1be0af
+
