@@ -1,0 +1,18 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 51ee239f-6200-4f27-ac5d-a0a3b5b89b79
+  loglevel: INFO
+  name: test21222
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: echo "21222"
+    keepgoing: false
+    strategy: node-first
+  uuid: 51ee239f-6200-4f27-ac5d-a0a3b5b89b79
+
