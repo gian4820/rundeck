@@ -1,0 +1,18 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: d0e7cfde-f2b8-4b00-9597-33281da748c6
+  loglevel: INFO
+  name: no_conexion
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: echo "no conexion"
+    keepgoing: false
+    strategy: node-first
+  uuid: d0e7cfde-f2b8-4b00-9597-33281da748c6
+
