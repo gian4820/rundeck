@@ -1,9 +1,9 @@
 - defaultTab: nodes
-  description: ''
+  description: this is a new change
   executionEnabled: true
   id: 4fdb7b42-ef3a-43db-af3c-c6422a1be0af
   loglevel: INFO
-  name: hi
+  name: new change
   nodeFilterEditable: false
   plugins:
     ExecutionLifecycle: {}
