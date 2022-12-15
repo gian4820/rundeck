@@ -1,9 +1,9 @@
 - defaultTab: nodes
-  description: ''
+  description: ad
   executionEnabled: true
   id: 14fc5874-22b5-462b-8d6a-511eb9565d28
   loglevel: INFO
-  name: test5
+  name: test54
   nodeFilterEditable: false
   plugins:
     ExecutionLifecycle: {}
@@ -14,5 +14,6 @@
     - exec: echo "test"
     keepgoing: false
     strategy: node-first
+  tags: a
   uuid: 14fc5874-22b5-462b-8d6a-511eb9565d28
 
