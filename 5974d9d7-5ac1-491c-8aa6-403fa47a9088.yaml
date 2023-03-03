@@ -1,0 +1,18 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 5974d9d7-5ac1-491c-8aa6-403fa47a9088
+  loglevel: INFO
+  name: uname
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: uname -a
+    keepgoing: false
+    strategy: node-first
+  uuid: 5974d9d7-5ac1-491c-8aa6-403fa47a9088
+
