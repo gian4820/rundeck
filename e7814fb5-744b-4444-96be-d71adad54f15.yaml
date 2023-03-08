@@ -1,0 +1,33 @@
+- defaultTab: output
+  description: Iterate over a step multiple times
+  executionEnabled: true
+  id: e7814fb5-744b-4444-96be-d71adad54f15
+  loglevel: INFO
+  name: loopthis
+  nodeFilterEditable: false
+  options:
+  - label: Number of iterations to perform
+    name: iterations
+    required: true
+    value: '55'
+  plugins:
+    ExecutionLifecycle: {}
+  schedule:
+    dayofmonth:
+      day: 1/1
+    month: '*'
+    time:
+      hour: '*'
+      minute: 0/1
+      seconds: '0'
+    year: '*'
+  scheduleEnabled: false
+  schedules: []
+  sequence:
+    commands:
+    - script: "#!/bin/bash\nfor (( i=1; i<=@option.iterations@; i++ ))\ndo  \n   echo\
+        \ \"Loop number $i\"\n   sleep 1\ndone"
+    keepgoing: false
+    strategy: node-first
+  uuid: e7814fb5-744b-4444-96be-d71adad54f15
+

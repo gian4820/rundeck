@@ -1,0 +1,27 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 3c779bb8-f52d-4f35-8ca1-e45f9d640f96
+  loglevel: INFO
+  name: html
+  nodeFilterEditable: false
+  options:
+  - name: path_html
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: cat ${option.path_html}
+    keepgoing: false
+    pluginConfig:
+      LogFilter:
+      - config:
+          datatype: text/html
+          sanitizeHtml: 'true'
+          striped: 'false'
+        type: render-datatype
+    strategy: node-first
+  uuid: 3c779bb8-f52d-4f35-8ca1-e45f9d640f96
+

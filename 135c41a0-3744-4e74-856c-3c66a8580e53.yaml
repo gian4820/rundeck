@@ -1,0 +1,33 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 135c41a0-3744-4e74-856c-3c66a8580e53
+  loglevel: INFO
+  name: qr_code
+  nodeFilterEditable: false
+  options:
+  - label: data
+    name: data
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - fileExtension: sh
+      script: "#!/usr/bin/env python3\nimport qrcode, io\n\ndata = \"@option.data@\"\
+        \nqr = qrcode.QRCode()\nqr.add_data(data)\nf = io.StringIO()\nqr.print_ascii(out=f)\n\
+        f.seek(0)\nprint(f.read())\n\n# qrcode.image.pil.PilImage\nimg = qrcode.make(data)\n\
+        type(img)  \nimg.save(\"/tmp/qr.png\")"
+    - exec: cat /tmp/show.html
+    keepgoing: true
+    pluginConfig:
+      LogFilter:
+      - config:
+          datatype: text/html
+          sanitizeHtml: 'true'
+          striped: 'false'
+        type: render-datatype
+    strategy: node-first
+  uuid: 135c41a0-3744-4e74-856c-3c66a8580e53
+
