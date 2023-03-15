@@ -1,0 +1,18 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: f6905e95-842a-41e9-9638-1d7f7f1f8ab8
+  loglevel: INFO
+  name: ps
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: ps -aux
+    keepgoing: false
+    strategy: node-first
+  uuid: f6905e95-842a-41e9-9638-1d7f7f1f8ab8
+
