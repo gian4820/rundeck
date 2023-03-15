@@ -1,5 +1,5 @@
 - defaultTab: nodes
-  description: ''
+  description: more info
   executionEnabled: true
   group: ps
   id: 408ba1e8-67cc-4043-903d-a23aece1e443
@@ -13,6 +13,7 @@
   sequence:
     commands:
     - exec: ps -aux | grep java
+    - exec: hostname
     keepgoing: false
     strategy: node-first
   uuid: 408ba1e8-67cc-4043-903d-a23aece1e443
