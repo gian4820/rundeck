@@ -1,0 +1,73 @@
+- defaultTab: nodes
+  description: |-
+    Archive and delete old Rundeck logs in a given path.
+
+      - Select an Active Directory group (default "rdk9grp")
+      - Select the minimum number of days since the file was last modified (default 1; Rundeck logs like crazy)
+      - Select the path to the directory you want to clean up (not recursive)
+  executionEnabled: true
+  group: Administrative/Maintenance
+  id: c96f59a6-b4fb-42f9-b196-82f10124f7a8
+  loglevel: INFO
+  name: Directory_Cleanup
+  nodeFilterEditable: false
+  notification:
+    onsuccess:
+      email:
+        recipients: ${job.user.email}
+        subject: '${notification.eventStatus} [${execution.project}] ${job.group}/${job.name}
+          ${execution.argstring} Started: ${execution.dateStarted} Ended: ${execution.dateEnded}'
+  notifyAvgDurationThreshold: null
+  options:
+  - description: |
+      [Required] Enter the AD group to search for. Default is 'Staff.'
+      Groups are case-sensitive.
+    enforced: true
+    name: Group
+    required: true
+    value: rdk9grp
+    values:
+    - rdk9grp
+    valuesListDelimiter: ','
+  - description: 'Enter the minimum number of days since last modification, 0-59 (default
+      is 30 days).'
+    name: MTime
+    regex: ^[0-5]?[0-9]$
+    required: true
+    value: '0'
+  - delimiter: ' '
+    enforced: true
+    multivalueAllSelected: true
+    multivalued: true
+    name: Path
+    required: true
+    value: /opt/rundeck/server/logs/ /opt/rundeck/server/logs/validations/ /opt/rundeck/options/F5/tokens/
+    values:
+    - /opt/rundeck/options/F5/tokens/
+    - /opt/rundeck/server/logs/
+    - /opt/rundeck/server/logs/validations/
+    valuesListDelimiter: ' '
+  plugins:
+    ExecutionLifecycle: null
+  schedule:
+    month: '*'
+    time:
+      hour: '01'
+      minute: '45'
+      seconds: '0'
+    weekday:
+      day: '*'
+    year: '*'
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - description: Find and delete files older than mtime.
+      script: "#!/bin/env bash\n\nfor PATH in @option.Path@\ndo \n    /usr/bin/find\
+        \ ${PATH} -mindepth 1 -maxdepth 1 -type f -group @option.Group@ -mtime +@option.MTime@\
+        \ -delete\ndone"
+    keepgoing: true
+    strategy: node-first
+  timeout: 3h
+  uuid: c96f59a6-b4fb-42f9-b196-82f10124f7a8
+
