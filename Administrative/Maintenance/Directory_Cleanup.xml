@@ -1,0 +1,58 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option enforcedvalues='true' name='Group' required='true' value='rdk9grp' values='rdk9grp' valuesListDelimiter=','>
+          <description><![CDATA[[Required] Enter the AD group to search for. Default is 'Staff.'
+Groups are case-sensitive.
+]]></description>
+        </option>
+        <option name='MTime' regex='^[0-5]?[0-9]$' required='true' value='0'>
+          <description>Enter the minimum number of days since last modification, 0-59 (default is 30 days).</description>
+        </option>
+        <option delimiter=' ' enforcedvalues='true' multivalueAllSelected='true' multivalued='true' name='Path' required='true' value='/opt/rundeck/server/logs/ /opt/rundeck/server/logs/validations/ /opt/rundeck/options/F5/tokens/' values='/opt/rundeck/options/F5/tokens/,/opt/rundeck/server/logs/,/opt/rundeck/server/logs/validations/' valuesListDelimiter=' ' />
+      </options>
+    </context>
+    <defaultTab>nodes</defaultTab>
+    <description><![CDATA[Archive and delete old Rundeck logs in a given path.
+
+  - Select an Active Directory group (default "rdk9grp")
+  - Select the minimum number of days since the file was last modified (default 1; Rundeck logs like crazy)
+  - Select the path to the directory you want to clean up (not recursive)]]></description>
+    <executionEnabled>true</executionEnabled>
+    <group>Administrative/Maintenance</group>
+    <id>c96f59a6-b4fb-42f9-b196-82f10124f7a8</id>
+    <loglevel>INFO</loglevel>
+    <name>Directory_Cleanup</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <notification>
+      <onsuccess>
+        <email recipients='${job.user.email}' subject='${notification.eventStatus} [${execution.project}] ${job.group}/${job.name} ${execution.argstring} Started: ${execution.dateStarted} Ended: ${execution.dateEnded}' />
+      </onsuccess>
+    </notification>
+    <notifyAvgDurationThreshold />
+    <plugins />
+    <schedule>
+      <month month='*' />
+      <time hour='01' minute='45' seconds='0' />
+      <weekday day='*' />
+      <year year='*' />
+    </schedule>
+    <scheduleEnabled>true</scheduleEnabled>
+    <schedules />
+    <sequence keepgoing='true' strategy='node-first'>
+      <command>
+        <description>Find and delete files older than mtime.</description>
+        <script><![CDATA[#!/bin/env bash
+
+for PATH in @option.Path@
+do 
+    /usr/bin/find ${PATH} -mindepth 1 -maxdepth 1 -type f -group @option.Group@ -mtime +@option.MTime@ -delete
+done]]></script>
+        <scriptargs />
+      </command>
+    </sequence>
+    <timeout>3h</timeout>
+    <uuid>c96f59a6-b4fb-42f9-b196-82f10124f7a8</uuid>
+  </job>
+</joblist>
