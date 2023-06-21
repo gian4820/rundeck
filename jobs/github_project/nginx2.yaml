@@ -1,0 +1,18 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 36df6cc9-fdc4-4310-b7de-1e22dc113901
+  loglevel: INFO
+  name: nginx2
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: echo "We are using NGINX"
+    keepgoing: false
+    strategy: node-first
+  uuid: 36df6cc9-fdc4-4310-b7de-1e22dc113901
+

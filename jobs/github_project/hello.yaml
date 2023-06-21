@@ -1,0 +1,19 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 02bfa5a2-f148-4796-9864-37be55460f07
+  loglevel: INFO
+  name: hello
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: echo "hello_world"
+    keepgoing: false
+    strategy: node-first
+  tags: gianfranco
+  uuid: 02bfa5a2-f148-4796-9864-37be55460f07
+
