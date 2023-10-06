@@ -1,0 +1,57 @@
+- defaultTab: nodes
+  description: Update SGE status to Netbox status
+  executionEnabled: true
+  group: CRON_JOBS/NETBOX_UPDATES
+  id: 4b8f1626-2288-41e5-886f-515ef9ca41e1
+  loglevel: WARN
+  name: new_uuid
+  nodeFilterEditable: true
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: true
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '50'
+    filter: 'tags: sge_execution_host'
+    filterExclude: 'name: gbnwp-vrdsrv001.it.graphcore.ai,gbnwp-vrdsrv002.it.graphcore.ai,gbnwp-vrdsrv001,gbnwp-vrdsrv002,gbnwp-vfarmansible001.it.graphcore.ai
+      name: !.*'
+  nodesSelectedByDefault: false
+  notification:
+    onfailure:
+      plugin:
+        configuration:
+          slack_channel: '#it-alerts-rundeck-application'
+          webhook_base_url: https://hooks.slack.com/services/
+          webhook_token: T2GU9J9CL/B04SN7LH1NG/vFIK3uv1Lx6ivaAa88hrix4e
+        type: SlackNotification
+  notifyAvgDurationThreshold: 1h
+  options:
+  - hidden: true
+    name: NETBOX_API_TOKEN
+    required: true
+    secure: true
+    storagePath: keys/thycotic/IT/Linux/Rundeck/svcitnetbox-netbox002
+    valueExposed: true
+  plugins:
+    ExecutionLifecycle: {}
+  runnerSelector:
+    runnerFilterMode: LOCAL
+    runnerFilterType: LOCAL_RUNNER
+  schedule:
+    dayofmonth:
+      day: '*'
+    month: '*'
+    time:
+      hour: '*/2'
+      minute: '5'
+      seconds: '0'
+    year: '*'
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - exec: echo "hi my world"
+    keepgoing: true
+    strategy: node-first
+  uuid: 4b8f1626-2288-41e5-886f-515ef9ca41e1
