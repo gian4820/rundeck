@@ -1,3 +1,11 @@
 #!/bin/bash
 echo "Hello from github this is a new change"
-echo "You have selected the option: " @$RD_OPTION_CARS
+echo @$RD_OPTION_CARS
+echo ${unquotedoption.cars}
+echo ${option.cars}
+echo @option.cars@
+
+echo "@$RD_OPTION_CARS"
+echo "${unquotedoption.cars}"
+echo "${option.cars}"
+echo "@option.cars@"
