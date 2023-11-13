@@ -1,0 +1,42 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 5ab88ef4-4f3e-4759-986d-0eeecc263508
+  loglevel: INFO
+  name: github_script_step
+  nodeFilterEditable: false
+  options:
+  - name: cars
+    values:
+    - BMW
+    - Audi
+    - Mercedes Benz
+    - Renault
+    - Volkswagen
+    valuesListDelimiter: ','
+  plugins:
+    ExecutionLifecycle: {}
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - configuration:
+        githubAuthToken: keys/gian/github_token
+        githubAuthType: OAuth token
+        githubAuthUsername: gian4820
+        githubScriptExecutable: /bin/bash
+        githubScriptFail: 'true'
+        githubScriptFile: hello_github.sh
+        githubScriptPath: gian4820/rundeck
+        githubUrl: https://api.github.com
+      nodeStep: false
+      type: github-script-step
+    - fileExtension: sh
+      script: |-
+        #!/bin/bash
+
+        echo "We have selected the car: " @option.cars@
+    keepgoing: false
+    strategy: node-first
+  uuid: 5ab88ef4-4f3e-4759-986d-0eeecc263508
+
