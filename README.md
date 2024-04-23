@@ -1,13 +1,12 @@
 # rundeck
 rundeck repo
 This is the Rundeck Repo
-Here you can see all new futures that i can do for the tool, like:
+Here you can see all the new developments that I have done using the automation tool, such as:
   - Projects
   - Jobs
   - Plugins
   - Scripts
-  - And more
+  - And more...
   
-Thanks for read this section
-Regards.-
+
  
