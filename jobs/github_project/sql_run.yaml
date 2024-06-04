@@ -1,0 +1,30 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: bd8a39ae-f459-4728-b1d3-0b7d87ada888
+  loglevel: INFO
+  name: sql_run
+  nodeFilterEditable: false
+  plugins:
+    ExecutionLifecycle: {}
+  runnerSelector:
+    runnerFilterMode: LOCAL
+    runnerFilterType: LOCAL_RUNNER
+  scheduleEnabled: true
+  schedules: []
+  sequence:
+    commands:
+    - configuration:
+        commit: 'false'
+        jdbcDriver: org.mariadb.jdbc.Driver
+        jdbcUrl: jdbc:mysql://localhost:3306/rundeck
+        passwordStoragePath: keys/gian/mysql
+        scriptBody: SELECT * FROM login_user;
+        statementDelimiter: /
+        user: rundeck
+      nodeStep: true
+      type: org.rundeck.sqlrunner.SQLRunnerNodeStepPlugin
+    keepgoing: false
+    strategy: node-first
+  uuid: bd8a39ae-f459-4728-b1d3-0b7d87ada888
+
